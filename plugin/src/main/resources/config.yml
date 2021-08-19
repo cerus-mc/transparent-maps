@@ -1,0 +1,12 @@
+economy:
+  enable: false
+  price: 100.0
+
+messages:
+  hold-block-offhand: "&cPlease hold a block in your offhand"
+  block-color: "&cThis block does not have a color!"
+  hold-open-map: "&cPlease hold an open map in your main hand"
+  click-shade: "&aPlease click the shade you'd like to replace"
+  eco-price: "&7This action will cost you &e%s %s&7."
+  eco-no-money: "&cYou don't have enough money."
+  eco-error: "&cThe transaction failed. Please contact an administrator."
