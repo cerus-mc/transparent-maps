@@ -5,6 +5,8 @@ import dev.cerus.transparentmaps.command.TransparentMapsCommand;
 import dev.cerus.transparentmaps.compat.NmsAdapterFactory;
 import dev.cerus.transparentmaps.misc.EconomyContext;
 import dev.cerus.transparentmaps.nms.NmsAdapter;
+import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,9 +30,8 @@ public class TransparentMapsPlugin extends JavaPlugin {
         final double price = config.getDouble("economy.price");
         final EconomyContext economyContext;
 
-        // TODO: Replace when available on SpigotMC
-        //final Metrics metrics = new Metrics(this, pluginId);
-        //metrics.addCustomChart(new SimplePie("eco_enabled", () -> config.getBoolean("economy.enable") ? "Yes" : "No"));
+        final Metrics metrics = new Metrics(this, 12499);
+        metrics.addCustomChart(new SimplePie("eco_enabled", () -> config.getBoolean("economy.enable") ? "Yes" : "No"));
 
         if (enableEco && !this.getServer().getPluginManager().isPluginEnabled("Vault")) {
             enableEco = false;
