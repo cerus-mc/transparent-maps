@@ -4,4 +4,4 @@
 
 Replaces specific colors with transparency
 
-![Gif](https://cerus.dev/img/transparent_maps.gif)
+![Gif](https://cerus.dev/img/transparent_maps_opt.gif)
