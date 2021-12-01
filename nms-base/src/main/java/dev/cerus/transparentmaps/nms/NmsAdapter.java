@@ -22,9 +22,15 @@ public interface NmsAdapter {
 
     void saveWorldMap(ItemStack itemStack, World world);
 
+    void saveWorldMap(int mapId, World world);
+
     byte[] getWorldMapData(ItemStack itemStack, World world);
 
+    byte[] getWorldMapData(int mapId, World world);
+
     boolean acceptsVersion(final int major, final int minor, final Integer patch);
+
+    //MapColor[] getAvailableMapColors()
 
     default void drawTextCentered(final int x, final int z, final String text, final byte startColor, final int size, final byte[] data) {
         final int w = MinecraftFont.Font.getWidth(text);

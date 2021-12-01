@@ -7,7 +7,7 @@ import org.bukkit.Bukkit;
 
 public class NmsAdapterFactory {
 
-    private static final NmsAdapter[] ADAPTERS = new NmsAdapter[2];
+    private static final NmsAdapter[] ADAPTERS = new NmsAdapter[3];
 
     private static final int major;
     private static final int minor;
@@ -30,11 +30,17 @@ public class NmsAdapterFactory {
             ADAPTERS[0] = new dev.cerus.transparentmaps.nms.v1_16_R3.NmsAdapterImpl();
         }
 
-        // Because MC 1.17+ uses Java 16 we need this little workaround
+        // Because MC 1.17+ uses Java 16/17 we need this little workaround
         // for servers running an older Java version
         try {
             if (dev.cerus.transparentmaps.nms.v1_17_R1.VersionCheck.check(major, minor, patch)) {
                 ADAPTERS[1] = new dev.cerus.transparentmaps.nms.v1_17_R1.NmsAdapterImpl();
+            }
+        } catch (final UnsupportedClassVersionError ignored) {
+        }
+        try {
+            if (dev.cerus.transparentmaps.nms.v1_18_R1.VersionCheck.check(major, minor, patch)) {
+                ADAPTERS[2] = new dev.cerus.transparentmaps.nms.v1_18_R1.NmsAdapterImpl();
             }
         } catch (final UnsupportedClassVersionError ignored) {
         }

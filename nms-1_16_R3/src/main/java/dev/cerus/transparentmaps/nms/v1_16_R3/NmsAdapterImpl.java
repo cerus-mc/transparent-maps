@@ -29,6 +29,18 @@ public class NmsAdapterImpl implements NmsAdapter {
     }
 
     @Override
+    public void saveWorldMap(final int mapId, final World world) {
+        final WorldServer worldServer = ((CraftWorld) world).getHandle();
+        final WorldMap worldMap = worldServer.a("map_" + mapId);
+        worldServer.a(worldMap);
+        worldMap.locked = true;
+
+        for (final Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+            onlinePlayer.sendMap(worldMap.mapView);
+        }
+    }
+
+    @Override
     public void saveWorldMap(final ItemStack itemStack, final World world) {
         final WorldServer worldServer = ((CraftWorld) world).getHandle();
         final WorldMap worldMap = ItemWorldMap.getSavedMap(CraftItemStack.asNMSCopy(itemStack), worldServer);
@@ -44,6 +56,13 @@ public class NmsAdapterImpl implements NmsAdapter {
     public byte[] getWorldMapData(final ItemStack itemStack, final World world) {
         final WorldServer worldServer = ((CraftWorld) world).getHandle();
         final WorldMap worldMap = ItemWorldMap.getSavedMap(CraftItemStack.asNMSCopy(itemStack), worldServer);
+        return worldMap.colors;
+    }
+
+    @Override
+    public byte[] getWorldMapData(final int mapId, final World world) {
+        final WorldServer worldServer = ((CraftWorld) world).getHandle();
+        final WorldMap worldMap = worldServer.a("map_" + mapId);
         return worldMap.colors;
     }
 
