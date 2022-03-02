@@ -47,6 +47,25 @@ public class NmsAdapterFactory {
     }
 
     public static NmsAdapter getAdapter() {
+        if (true) {
+            String ver = Bukkit.getVersion().split(":")[1];
+            ver = ver.substring(0, ver.length() - 1).trim();
+
+            switch (ver) {
+                case "1.16.5":
+                    return new dev.cerus.transparentmaps.nms.v1_16_R3.NmsAdapterImpl();
+                case "1.17":
+                case "1.17.1":
+                    return new dev.cerus.transparentmaps.nms.v1_17_R1.NmsAdapterImpl();
+                case "1.18":
+                case "1.18.1":
+                    return new dev.cerus.transparentmaps.nms.v1_18_R1.NmsAdapterImpl();
+                case "1.18.2":
+                    return new dev.cerus.transparentmaps.nms.v1_18_R2.NmsAdapterImpl();
+                default:
+                    return null;
+            }
+        }
         return Arrays.stream(ADAPTERS)
                 .filter(Objects::nonNull)
                 .filter(nmsAdapter -> nmsAdapter.acceptsVersion(major, minor, patch))

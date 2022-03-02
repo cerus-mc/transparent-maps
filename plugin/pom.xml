@@ -5,7 +5,7 @@
     <parent>
         <artifactId>transparent-maps</artifactId>
         <groupId>dev.cerus</groupId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -48,7 +48,13 @@
         <dependency>
             <groupId>dev.cerus.transparentmaps</groupId>
             <artifactId>nms-1_18_R1</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>dev.cerus.transparentmaps</groupId>
+            <artifactId>nms-1_18_R2</artifactId>
+            <version>1.0.2</version>
             <scope>compile</scope>
         </dependency>
 

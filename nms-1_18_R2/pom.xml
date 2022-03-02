@@ -10,11 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dev.cerus.transparentmaps</groupId>
-    <artifactId>nms-1_16_R3</artifactId>
+    <artifactId>nms-1_18_R2</artifactId>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>craftbukkit</artifactId>
-            <version>1.16.4-R0.1-SNAPSHOT</version>
+            <version>1.18.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
