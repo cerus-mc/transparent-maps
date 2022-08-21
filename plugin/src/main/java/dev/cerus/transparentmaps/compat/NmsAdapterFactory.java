@@ -22,6 +22,7 @@ public class NmsAdapterFactory {
                 return new dev.cerus.transparentmaps.nms.v1_18_R2.NmsAdapterImpl();
             case "1.19":
             case "1.19.1":
+            case "1.19.2":
                 return new dev.cerus.transparentmaps.nms.v1_19_R1.NmsAdapterImpl();
             default:
                 return null;
