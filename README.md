@@ -1,6 +1,6 @@
 # transparent-maps
 
-1.16.5 - 1.19.4
+1.16.5 - 1.20
 
 Replaces specific colors with transparency
 
