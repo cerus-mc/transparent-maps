@@ -7,7 +7,7 @@
     <groupId>dev.cerus</groupId>
     <artifactId>transparent-maps</artifactId>
     <packaging>pom</packaging>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 
     <developers>
         <developer>
