@@ -5,6 +5,9 @@ import dev.cerus.transparentmaps.command.TransparentMapsCommand;
 import dev.cerus.transparentmaps.compat.NmsAdapterFactory;
 import dev.cerus.transparentmaps.misc.EconomyContext;
 import dev.cerus.transparentmaps.nms.NmsAdapter;
+import java.lang.reflect.Field;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
 import org.bukkit.ChatColor;
@@ -53,6 +56,17 @@ public class TransparentMapsPlugin extends JavaPlugin {
         commandManager.registerDependency(NmsAdapter.class, adapter);
         commandManager.registerDependency(EconomyContext.class, economyContext);
         commandManager.registerCommand(new TransparentMapsCommand());
+
+        // Workaround for acf locale errors
+        try {
+            final Field loggerField = commandManager.getClass().getDeclaredField("logger");
+            loggerField.setAccessible(true);
+            final Logger acfLogger = (Logger) loggerField.get(commandManager);
+            acfLogger.setLevel(Level.OFF);
+            acfLogger.setFilter(record -> false);
+        } catch (final NoSuchFieldException | IllegalAccessException ex) {
+            this.getLogger().log(Level.WARNING, "Failed to disable ACF logger", ex);
+        }
     }
 
     private String color(final String str) {
