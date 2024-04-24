@@ -6,7 +6,7 @@
     <parent>
         <groupId>dev.cerus</groupId>
         <artifactId>transparent-maps</artifactId>
-        <version>1.2.3</version>
+        <version>1.2.5</version>
     </parent>
 
     <groupId>dev.cerus.transparentmaps</groupId>
