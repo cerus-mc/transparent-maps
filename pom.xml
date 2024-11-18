@@ -7,7 +7,7 @@
     <groupId>dev.cerus</groupId>
     <artifactId>transparent-maps</artifactId>
     <packaging>pom</packaging>
-    <version>1.2.8</version>
+    <version>1.2.9</version>
 
     <developers>
         <developer>
@@ -31,6 +31,7 @@
         <module>nms-1_20_R3</module>
         <module>nms-1_20_R4</module>
         <module>nms-1_21_R1</module>
+        <module>nms-1_21_R2</module>
     </modules>
 
     <properties>
